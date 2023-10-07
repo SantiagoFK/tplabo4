@@ -1,0 +1,2 @@
+- node y express para el backend.
+- dependencia nodemon para server que detecta cambios automaticos.
