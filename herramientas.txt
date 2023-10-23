@@ -1,2 +1,3 @@
 - node y express para el backend.
 - dependencia nodemon para server que detecta cambios automaticos.
+- dependencia morgan para logging de requests.
