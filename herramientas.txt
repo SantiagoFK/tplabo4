@@ -1,3 +1,5 @@
 - node y express para el backend.
-- dependencia nodemon para server que detecta cambios automaticos.
-- dependencia morgan para logging de requests.
+- nodemon para reiniciar server automaticamente ante los cambios.
+- morgan para logging de requests.
+- mongoose como ODM para interactuar con mongodb.
+- dotenv para variables de entorno

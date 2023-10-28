@@ -1,5 +1,7 @@
 const express = require('express')
-const apiV1 = require('./routers/api1')
+const mongoose = require('mongoose')
+
+const apiV1 = require('./v1/api.js')
 
 const app = express()
 
