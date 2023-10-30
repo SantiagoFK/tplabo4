@@ -1,6 +1,6 @@
-const { Schema, Model } = require('mongoose')
+const mongoose = require('mongoose')
 
-const articleSquema = new Schema({
+const articleSquema = mongoose.Schema({
     title: { type: String, required: true},
     author: { type: String, required: true},
     body: { type: String },
@@ -8,6 +8,6 @@ const articleSquema = new Schema({
     updated: { type: Date, default: Date.now }
 })
 
-const Article = new Model("Article", articleSquema)
+const Article = mongoose.model("Article", articleSquema)
 
 module.exports = Article

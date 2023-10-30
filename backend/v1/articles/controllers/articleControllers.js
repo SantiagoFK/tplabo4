@@ -1,28 +1,49 @@
-const articles = [{
-    "id": 1,
-    "title": "Saying Hi",
-    "author": "Marian",
-    "body": "Hello this is my first article"
-},
-{
-    "id": 2,
-    "title": "Start on C",
-    "author": "Professor X",
-    "body": "This is the way to start on C programming language"
-},
-{
-    "id": 3,
-    "title": "How to think of the right data structure",
-    "author": "Fred",
-    "body": "Thinking about the right data structure"
-}]
+const Article = require('../models/article')
 
-const getArticles = (req, res) => {
-    return res.status(200).json(articles)
+const getArticles = async (req, res) => {
+    try
+    {
+        const articles = await Article.find({})
+        return res.status(200).json({ articles: articles })
+    }catch(error)
+    {
+        console.log(error)
+    }
+
+    return res.status(500).json({ error: "Server error: Something happenned while fetching articles. "})
 }
 
-const postArticle = (req, res) => {
-    return res.status(200).json({"post": "create an article"})
+const postArticle = async (req, res) => 
+{
+    const { title, author, body, created, updated } = req.body
+
+    if( title && author && body )
+    {
+        try
+        {
+            const article = new Article({
+                title: title,
+                author: author,
+                body: body
+            })
+
+            await Article.create(article)
+            
+
+            return res.status(201).json({ msg: "New article was successfully created."})
+        }catch(error)
+        {
+            console.log(error)
+        }
+
+    }
+    else if ( !title || !author  || !body)
+    {
+        return res.status(400).json({ error: "Cannot create article: missing title, author or body."})
+    }
+
+    return res.status(400).json({ error: "No article was received as the body of the request."})
+
 }
 
 const deleteArticle = (req, res) => {

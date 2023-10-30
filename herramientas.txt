@@ -2,4 +2,4 @@
 - nodemon para reiniciar server automaticamente ante los cambios.
 - morgan para logging de requests.
 - mongoose como ODM para interactuar con mongodb.
-- dotenv para variables de entorno
+- dotenv para variables de entorno como url de bdd, y puerto.
