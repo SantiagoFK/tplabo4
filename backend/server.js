@@ -23,7 +23,9 @@ mongoose.connect(process.env.DB_URI)
 
         //si la base de datos se inicia, se inicia el servidor
         app.listen(process.env.PORT, () => {
-            console.log(`Server started at: http:/localhost:${process.env.PORT}/v1/articles`)
+            //lo que se printea aca se puede mejorar en formato.
+            console.log(`Article service started at: http:/localhost:${process.env.PORT}/v1/articles`)
+            console.log(`User service started at: http:/localhost:${process.env.PORT}/v1/users`)
         })
     })
     .catch((error) => console.log(error))

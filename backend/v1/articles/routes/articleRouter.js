@@ -10,7 +10,7 @@ const articleRouter = express.Router()
 
 articleRouter.get("/", getArticles)
 articleRouter.post("/", postArticle)
-articleRouter.delete("/", deleteArticle)
-articleRouter.patch("/", updateArticle)
+articleRouter.delete("/:id", deleteArticle)
+articleRouter.patch("/:id", updateArticle)
 
 module.exports = articleRouter

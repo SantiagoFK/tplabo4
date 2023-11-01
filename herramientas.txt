@@ -3,3 +3,5 @@
 - morgan para logging de requests.
 - mongoose como ODM para interactuar con mongodb.
 - dotenv para variables de entorno como url de bdd, y puerto.
+- bcrypt para encriptar y desencriptar contraseñas de usuarios.
+- validator para validar emails en el back.

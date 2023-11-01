@@ -1,4 +1,5 @@
 const Article = require('../models/article')
+const mongoose = require('mongoose')
 
 const getArticles = async (req, res) => {
     try
@@ -13,14 +14,14 @@ const getArticles = async (req, res) => {
     return res.status(500).json({ error: "Server error: Something happenned while fetching articles. "})
 }
 
-const postArticle = async (req, res) => 
-{
+const postArticle = async (req, res) => {
     const { title, author, body, created, updated } = req.body
 
     if( title && author && body )
     {
         try
         {
+            //se puede mejorar con spread operator
             const article = new Article({
                 title: title,
                 author: author,
@@ -42,16 +43,70 @@ const postArticle = async (req, res) =>
         return res.status(400).json({ error: "Cannot create article: missing title, author or body."})
     }
 
-    return res.status(400).json({ error: "No article was received as the body of the request."})
+    return res.status(400).json({ error: "No article was given in the body of the request."})
 
 }
 
-const deleteArticle = (req, res) => {
-    res.send("delete an article")
+const deleteArticle = async (req, res) => {
+    const { id } = req.params
+
+    if( id )
+    {
+        if( mongoose.Types.ObjectId.isValid(id) )
+        {
+            try
+            {
+                const { deletedCount } = await Article.deleteOne({ _id: id })
+    
+                if ( deletedCount !== 1 )
+                {
+                    return res.status(400).json({ error: `No article was found with id ${id}`})
+                }
+
+                return res.status(200).json( { msg: `Article with id ${id} sucessfully deleted.`} )
+    
+            }catch(error)
+            {
+                console.log(error)
+            }
+        }else
+        {
+            return res.status(400).json({ error: `Invalid ID ${id}.`})
+        }
+
+    }
+
+    return res.status(400).json({ error: "No ID was given as url parameter."})
 }
 
-const updateArticle = (req, res) => {
-    res.send("update an article")
+const updateArticle = async (req, res) => {
+    const { id } = req.params
+
+    if( id )
+    {
+        if( mongoose.Types.ObjectId.isValid(id) )
+        {
+            try{
+                const article = await Article.findByIdAndUpdate({ _id: id}, {...req.body})
+
+                if( ! article )
+                {
+                    return res.status(404).json({ error: `No such article with id ${id} was found` })
+                }
+                
+                return res.status(200).json({ msg: `Article with ${id} sucessfully updated.`})
+            }catch(error)
+            {
+                console.log(error)
+            }
+        }
+        else
+        {
+            return res.status(400).json({ error: `Invalid ID ${id}.`})
+        }
+    }
+
+    return res.status(400).json({ error: "No ID was given as url parameter."})
 }
 
 module.exports = {
