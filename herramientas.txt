@@ -5,3 +5,4 @@
 - dotenv para variables de entorno como url de bdd, y puerto.
 - bcrypt para encriptar y desencriptar contraseñas de usuarios.
 - validator para validar emails en el back.
+- jsonwebtoken para manejar autorización con usuarios y jwt.

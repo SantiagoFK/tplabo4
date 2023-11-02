@@ -1,20 +1,10 @@
 const express = require('express')
 const userRouter = express.Router()
 
-const {
-    getUser,
-    getAllUsers,
-    createUser,
-    updateUser,
-    deleteUser
-} = require('../controllers/userControllers')
+const { loginUser, signupUser } = require('../controllers/userControllers')
 
-userRouter.get("/", getAllUsers)
-userRouter.post("/", createUser)
 
-//los siguientes endpoints deben recibir el id 
-userRouter.get("/", getUser)
-userRouter.put("/", updateUser)
-userRouter.delete("/", deleteUser)
+userRouter.post("/login", loginUser)
+userRouter.post("/signup", signupUser)
 
 module.exports = userRouter
