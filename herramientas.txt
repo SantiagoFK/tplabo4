@@ -6,3 +6,5 @@
 - bcrypt para encriptar y desencriptar contraseñas de usuarios.
 - validator para validar emails en el back.
 - jsonwebtoken para manejar autorización con usuarios y jwt.
+- socket.io para la implementacion de un chat por medio de sockets (servidor).
+- socket.io-client para la manejar los sockets desde el cliente de Angular.
