@@ -18,13 +18,7 @@ export class ArticleListComponent implements OnInit{
   {
     this.getArticles()
   }
-  
-  /*
-  async getArticles()
-  {
-    this.articles = await this.articleService.getArticles()
-    console.log(this.articles)
-  }*/
+
 
   getArticles()
   {
@@ -39,14 +33,5 @@ export class ArticleListComponent implements OnInit{
       }
     )
   }
-  
-  /*
-  sendMsg()
-  {
-    this.io.on("connection", (socket) => {
-      socket.emit('chat', this.msg)
-    })
-  }*/
-
   
 }

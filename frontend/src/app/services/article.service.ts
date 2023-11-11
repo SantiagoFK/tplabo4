@@ -11,51 +11,18 @@ export class ArticleService {
 
   constructor(private http: HttpClient) { }
   
-  /*
   getArticles(): Observable<Article[]>
-  {
-    return this.http.get<Article[]>(this.url).pipe(
-      map(data => {
-        return data.map(article => {
-          return {
-            title: article.title,
-            author: article.author
-          }
-        })
-      }),
-    
-      catchError(error => {
-        console.log("Error en la solicitud http: ", error)
-        return []
-      })
-    )
-  }*/
-  
-  /*
-  async getArticles()
-  {
-    try{
-      const response = await fetch(this.url)
-
-      if( response.ok )
-      {
-        const json = await response.json()
-        return json
-      } 
-    }catch(error)
-    {
-      console.log(error)
-    }
-  }*/
-  
-  getArticles()
   {
     return this.http.get<Article[]>(this.url).pipe(
       map(articles => {
         return articles.map(article => {
+          console.log(article)
           return {
+            _id: article._id,
             title: article.title,
-            author: article.author
+            author: article.author,
+            body: article.body,
+            created: article.created
           }
         })
       }),
@@ -67,5 +34,31 @@ export class ArticleService {
     )
   }
 
+  postArticle(article: Article): Observable<Article>
+  {
+      return this.http.post<Article>(
+        this.url,
+        article,
+        {
+          headers: { 'Content-type': 'application/json'}
+        }
+      )
+  }
+
+  updateArticle(article: Article): Observable<Article>
+  {
+    return this.http.put<Article>(
+      `${this.url}/${article._id}`,
+      article,
+      {
+        headers: { 'Content-type': 'application/json' }
+      }
+    )
+  }
+  
+  deleteArticle(_id: String)
+  {
+    return this.http.delete(`${this.url}/${_id}`)
+  }
 
 }

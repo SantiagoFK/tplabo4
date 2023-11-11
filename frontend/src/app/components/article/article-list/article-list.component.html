@@ -1,0 +1,18 @@
+<p>Article LIST</p>
+
+<div *ngIf="articles.length > 0; else noArticles">
+    <ul *ngFor="let article of articles">
+        <li>
+            <p>{{ article._id }}</p>
+            <p>{{ article.title}}</p>
+            <p>{{ article.author }}</p>
+            <p>{{ article.body }}</p>
+            <p>{{ article.created }}</p>
+        </li>
+    </ul>
+</div>
+
+<ng-template #noArticles>
+    <p>No articles yet</p>
+</ng-template>
+

@@ -1,0 +1,19 @@
+<form (submit)="saveArticle()" [formGroup]="articleForm">
+    <div>
+        <label for="title">Title:</label><br>
+        <input type="text" name="title" id="title" formControlName="title">
+    </div>
+
+    <div>
+        <label for="author">Author:</label><br>
+        <input type="text" name="author" id="author" formControlName="author">
+    </div>
+
+    <div>
+        <label for="body">Body:</label><br>
+        <textarea name="body" id="body" cols="30" rows="10" formControlName="body">
+        </textarea>
+    </div>
+    
+    <button type="submit">Submit</button>
+</form>
