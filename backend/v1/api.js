@@ -8,5 +8,9 @@ const app = express.Router()
 app.use("/articles", articleRouter)
 app.use("/users", userRouter)
 
+app.use((req, res) => {
+    return res.status(404).json({ error: "Error 404: resource not found."})
+})
+
 
 module.exports = app

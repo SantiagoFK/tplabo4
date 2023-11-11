@@ -5,7 +5,7 @@ const getArticles = async (req, res) => {
     try
     {
         const articles = await Article.find({})
-        return res.status(200).json({ articles: articles })
+        return res.status(200).json(articles)
     }catch(error)
     {
         console.log(error)

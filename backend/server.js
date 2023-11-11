@@ -14,11 +14,13 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 app.use(logger("dev"))
+app.use(express.static('public'))
 
 app.use('/v1', apiV1)
 
+
 app.get("/", (req, res) => {
-    res.redirect("/v1")
+    res.render('index.html')
 })
 
 const server = http.createServer(app)
@@ -38,6 +40,10 @@ mongoose.connect(process.env.DB_URI)
         const io = socket(server)
         io.on('connection', (socket) => {
             console.log("Made socket connection ", socket.id)
+
+            /*socket.on('chat', (data) => {   
+                io.sockets.emit('chat', data)
+            })*/
         })
 
     })
