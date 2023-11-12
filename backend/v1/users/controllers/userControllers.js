@@ -40,7 +40,7 @@ const loginUser = async (req, res) => {
 
         const token = createToken(user._id)
 
-        return res.status(200).json({ email: email, token: token})
+        return res.status(200).json({email, token})
         
     }catch(error)
     {
@@ -76,7 +76,7 @@ const signupUser = async (req, res) => {
     try{
         const user = await User.create({ email: email, password: hashPass })
         const token = createToken(user._id)
-        return res.status(201).json({ email: email, token: token })
+        return res.status(201).json({email, token})
     }catch(error)
     {
         console.log(error)
@@ -85,7 +85,20 @@ const signupUser = async (req, res) => {
     return res.status(500).json({error: "Server error: Something happenned while creating an user. "})
 }
 
+const getAllUsers = async (req, res) => {
+    try{
+        const users = await User.find({})
+        return res.status(200).json(users)
+    }catch(error)
+    {
+        console.log(error)
+    }
+
+    return res.status(500).json({ error: "Server error: Something happenned while fetching articles. "})
+}
+
 module.exports = {
     loginUser,
-    signupUser
+    signupUser,
+    getAllUsers
 }

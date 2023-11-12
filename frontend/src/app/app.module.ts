@@ -12,8 +12,10 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CreatePageComponent } from './pages/create-page/create-page.component';
-import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { LoginComponent } from './components/auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,10 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     FooterComponent,
     ArticleCreateComponent,
     CreatePageComponent,
-    RegisterPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    SignupPageComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
