@@ -1,4 +1,84 @@
+/*normalize*/
+@import url('./assets/css/normalize.css');
+
+*, h1, a{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .btn-logout{
     cursor: pointer;
     color: red;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: dimgray;
+    color: whitesmoke;
+    font-size: 1.2rem;
+}
+
+main{
+    margin: 20px;
+    min-height: 500px;
+}
+
+.article{
+    width: 80%;
+    padding: 10px;
+    outline: 1px solid white;
+}
+
+.ads{
+    width: 98%;
+    margin: 0.5% auto;
+    background-color:tomato;
+}
+
+.articles-container{
+    display: flex;
+}
+
+.article-list{
+    width: 70%;
+    background-color: deeppink;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.ads-list{
+    width: 30%;
+    background-color: blue;
+    margin: 5px;
+}
+
+header{
+    background-color: black;
+}
+
+nav{
+    display: flex;
+    gap: 20px;
+    background-color: black;
+    padding: 1.2%;
+}
+
+nav > a
+{
+
+    color: greenyellow;
+    outline: 1px solid white;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    background-color:black;
+    color: greenyellow;
 }

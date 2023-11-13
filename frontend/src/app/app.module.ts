@@ -16,6 +16,8 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { LoginComponent } from './components/auth/login/login.component';
+import { WeekAdsComponent } from './components/article/week-ads/week-ads.component';
+import { AdsListComponent } from './components/article/ads-list/ads-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { LoginComponent } from './components/auth/login/login.component';
     LoginPageComponent,
     SignupPageComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    WeekAdsComponent,
+    AdsListComponent
   ],
   imports: [
     BrowserModule,
