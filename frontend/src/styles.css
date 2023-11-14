@@ -1,7 +1,7 @@
 /*normalize*/
 @import url('./assets/css/normalize.css');
 
-/*bootrap icons*/
+/*bootstrap icons*/
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
 @font-face {
@@ -20,9 +20,10 @@ body{
     padding: 0;
     box-sizing: border-box;
     width: 100%;
-    /*background-image: url("./assets/img/1.gif");
+    
+    background-image: url("./assets/img/1.gif");
     background-repeat: no-repeat;
-    background-size: cover;*/
+    background-size: cover;
     /*smookyBlack*/
     background-color: #12100e;
     color: whitesmoke;
@@ -31,50 +32,15 @@ body{
     text-shadow: 5px 3px 5px black;
 }
 
-main{
-    min-height: 800px;
-}
-
-.article{
-    padding: 20px;
-    border: 2px solid snow;
-    border-radius: 15px;
-    background-color: #1e1e24;
-}
-
-.ads{
-    width: 98%;
-    margin: 10px auto;
-    padding: 20px;
-    box-shadow: -1px 10px 15px greenyellow;
-}
-
-.articles-container{
-    display: flex;
-    padding: 5px;
-}
-
-.article-list{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 70%;
-    margin-top: 5px;
-    padding: 5px;
-}
-
-
-.ads-list{
-    width: 30%;
-    margin: 5px;
-}
 
 header{
     height: 1900px;
-    background-color: #12100e;
-    background-image: url("./assets/img/1.gif");
+
+    
+    /*
+    background-image: url("./assets/img/1biz.gif");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;*/
 }
 
 .page-title{
@@ -139,38 +105,119 @@ nav > p{
     color: red;
 }
 
+/************************* articles*****************************/
+
+main{
+    min-height: 800px;
+}
+
+#article-section{
+    padding-top: 30px;
+    margin: 5px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#article-section > h3{
+    font-size: 2.4rem;
+    text-align: center;
+    color: gold;
+    text-shadow: 2px 1px 8px gold;   
+}
+
+.article{
+    padding: 20px;
+    box-shadow: 2px 5px 8px dimgray;
+    border-bottom: 1px solid greenyellow;
+    background: rgba(0, 0, 0, 0.4);
+    transition: transform 0.1s ease-in-out 0s;
+}
+
+.article:hover{
+    cursor: pointer;
+    transform: scale(1.05, 1.05);
+}
+
+.article > h2{
+    text-align: center;
+    font-size: 2.1rem;
+}
+
+.ads{
+    width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+    box-shadow: -1px 10px 15px greenyellow;
+}
+
+.articles-container{
+    display: flex;
+    padding: 5px;
+}
+
+.article-list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+    margin: 20px;
+    padding: 5px;
+}
+
+.article-list > h3 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.ads-list{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 30%;
+    margin: 5px;
+}
+
+.ads-list > h5{
+    text-align: center;
+}
+
+
 
 footer{
+    background: rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1%;
-    color: greenyellow;
+    padding: 5%;
+    color: snow;
+    border-top: 1px solid white;
+    /*background-color: #12100e;*/
 }
 
-/*scroll bar*/
+/************************************** scroll bar ***************************/
 
 /* width */
 ::-webkit-scrollbar {
     width: 6px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: black;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: snow;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: lightslategrey;
-  }
+}
 
-  .sub-banner{
+/* Track */
+::-webkit-scrollbar-track {
+    background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: snow;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: snow;
+}
+
+/************************landing page banner****************/
+
+.sub-banner{
     margin-bottom: 20px;
     outline: 1px solid white;
     padding: 50px;
@@ -178,27 +225,27 @@ footer{
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 0.7);
-  }
+}
 
-  .sub-banner-img{
+.sub-banner-img{
     max-width: 100%;
-  }
+}
 
-  .sub-banner-txt{
+.sub-banner-txt{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 50px;
-  }
+}
 
-  .sub-banner-txt > h3{
+.sub-banner-txt > h3{
     text-shadow: 2px 1px 8px white;
     text-align: center;
     margin-bottom: 20px;
-  }
+}
 
-  .sub-banner-btn{
+.sub-banner-btn{
     cursor: pointer;
     color: white;
     border: 3px solid deeppink;
@@ -207,10 +254,10 @@ footer{
     width: 70%;
     height: 50px;
     transition: transform 0.1s ease-in-out 0s;
-  }
+}
 
-  .sub-banner-btn:hover{
+.sub-banner-btn:hover{
     transform: scale(1.1,1.1);
     position: relative;
     bottom: 2px;
-  }
+}

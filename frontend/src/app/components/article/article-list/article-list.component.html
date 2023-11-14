@@ -1,6 +1,8 @@
 
+
 <div class="articles-container">
     <div *ngIf="articles.length > 0; else noArticles" class="article-list">
+        <h3>New Articles</h3>
         <div *ngFor="let article of articles">
             <div class="article">
                 <h2>{{ article.title }}</h2>
@@ -11,6 +13,7 @@
     </div>
 
     <div class="ads-list">
+        <h5>Previous Week Articles</h5>
         <app-ads-list></app-ads-list>
     </div>
 </div>
