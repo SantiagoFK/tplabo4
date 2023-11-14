@@ -4,8 +4,8 @@
         <div *ngFor="let article of articles">
             <div class="article">
                 <h2>{{ article.title }}</h2>
-                <p>{{ article.author }}</p>
-                <p>{{ article.body }}</p>
+                <p> by {{ article.author }}</p>
+                <p>{{ article.body.slice(0, 25) }} ... </p>
             </div>
         </div>
     </div>
