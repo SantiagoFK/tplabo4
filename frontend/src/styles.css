@@ -1,6 +1,9 @@
 /*normalize*/
 @import url('./assets/css/normalize.css');
 
+/*bootrap icons*/
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
 @font-face {
     src: url('./assets/fonts/Numans-Regular.ttf');
     font-family: "main-font";
@@ -29,7 +32,6 @@ body{
 }
 
 main{
-    margin: 20px;
     min-height: 800px;
 }
 
@@ -68,7 +70,7 @@ main{
 }
 
 header{
-    height: 2000px;
+    height: 1900px;
     background-color: #12100e;
     background-image: url("./assets/img/1.gif");
     background-repeat: no-repeat;
@@ -85,22 +87,58 @@ nav{
     display: flex;
     gap: 20px;
     background-color: rgba(0, 0, 0, 0.3);
-    padding: 1.2%;
+    padding: 1.5%;
+    padding-bottom: 0;
+    text-shadow: 2px 1px 8px white;
 }
 
-nav > a
+nav > p{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.nav-page
 {
     text-align: center;
     color: snow;
     width: 10%;
     padding: 10px;
+    transition: transform 0.1s ease-in-out 0s;
+}
+
+.nav-page:hover{
+    transform: scale(1.1,1.1);
+    position: relative;
+    bottom: 2px;
     border-bottom: 3px solid greenyellow;
+}
+
+.nav-link:hover{
+    position: relative;
+    bottom: 2px;
+    color: greenyellow;
+    transform: scale(1.1,1.1);
+}
+
+.nav-link{
+    transition: transform 0.1s ease-in-out 0s;
+    color: snow;
+    margin: 10px;
+    font-size: 1.8rem;
+}
+
+.nav-link-container{
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: 30%;
+    width: 20%;
 }
 
 .btn-logout{
     cursor: pointer;
     color: red;
 }
+
 
 footer{
     display: flex;
@@ -124,7 +162,7 @@ footer{
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: lightslategray;
+    background: snow;
   }
   
   /* Handle on hover */
@@ -155,6 +193,7 @@ footer{
   }
 
   .sub-banner-txt > h3{
+    text-shadow: 2px 1px 8px white;
     text-align: center;
     margin-bottom: 20px;
   }
@@ -167,4 +206,11 @@ footer{
     margin-top: 50px;
     width: 70%;
     height: 50px;
+    transition: transform 0.1s ease-in-out 0s;
+  }
+
+  .sub-banner-btn:hover{
+    transform: scale(1.1,1.1);
+    position: relative;
+    bottom: 2px;
   }
