@@ -28,13 +28,27 @@ const server = http.createServer(app)
 //conexion con la base de datos
 mongoose.connect(process.env.DB_URI)
     .then(() => {
-        console.log(colors.white.bgMagenta.underline("\nMongoDB connected successfully\n"))
+        console.log(colors.green("\nBackend started!"))
+        console.log(colors.green(`
+ ________                   __                   __                                   
+/        |                 /  |                 /  |                                  
+$$$$$$$$/______    _______ $$ |____   __     __ $$/   ______   __   __   __   _______ 
+   $$ | /      \  /       |$$      \ /  \   /  |/  | /      \ /  | /  | /  | /       |
+   $$ |/$$$$$$  |/$$$$$$$/ $$$$$$$  |$$  \ /$$/ $$ |/$$$$$$  |$$ | $$ | $$ |/$$$$$$$/ 
+   $$ |$$    $$ |$$ |      $$ |  $$ | $$  /$$/  $$ |$$    $$ |$$ | $$ | $$ |$$      \ 
+   $$ |$$$$$$$$/ $$ \_____ $$ |  $$ |  $$ $$/   $$ |$$$$$$$$/ $$ \_$$ \_$$ | $$$$$$  |
+   $$ |$$       |$$       |$$ |  $$ |   $$$/    $$ |$$       |$$   $$   $$/ /     $$/ 
+   $$/  $$$$$$$/  $$$$$$$/ $$/   $$/     $/     $$/  $$$$$$$/  $$$$$/$$$$/  $$$$$$$/  
+                                                                                                                                       
+`))
+        console.log(colors.green("\nMongoDB connected successfully!\n"))
+        
 
         //si la base de datos se inicia, se inicia el servidor
         server.listen(process.env.PORT, () => {
             //lo que se printea aca se puede mejorar en formato.
-            console.log(colors.white.bgMagenta.underline(`Articles service started at: http://localhost:${process.env.PORT}/v1/articles`))
-            console.log(colors.white.bgMagenta.underline(`\nUsers service started at: http://localhost:${process.env.PORT}/v1/users`))
+            console.log(colors.green(`Articles service started at -> http://localhost:${process.env.PORT}/v1/articles`))
+            console.log(colors.green(`\nUsers service started at -> http://localhost:${process.env.PORT}/v1/users`))
         })
 
         const io = socket(server)

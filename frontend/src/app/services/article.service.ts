@@ -34,6 +34,26 @@ export class ArticleService {
     )
   }
 
+  getArticleById(_id: string): Observable<Article>
+  {
+    return this.http.get<Article>(`${this.url}/${_id}`).pipe(
+      map(article => {
+        return {
+          _id: article._id,
+          title: article.title,
+          author: article.author,
+          body: article.body,
+          created: article.created
+        }
+      }),
+
+      catchError(error => {
+        console.log(error)
+        return []
+      })
+    )
+  }
+
   postArticle(article: Article): Observable<Article>
   {
       return this.http.post<Article>(
@@ -56,7 +76,7 @@ export class ArticleService {
     )
   }
   
-  deleteArticle(_id: String)
+  deleteArticle(_id: String | undefined)
   {
     return this.http.delete(`${this.url}/${_id}`)
   }

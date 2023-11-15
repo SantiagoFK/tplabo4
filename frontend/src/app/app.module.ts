@@ -20,6 +20,10 @@ import { WeekAdsComponent } from './components/article/week-ads/week-ads.compone
 import { AdsListComponent } from './components/article/ads-list/ads-list.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { ArticleReadComponent } from './components/article/article-read/article-read.component';
+import { ReadArticlePageComponent } from './pages/read-article-page/read-article-page.component';
+import { EditArticlePageComponent } from './pages/edit-article-page/edit-article-page.component';
+import { ArticleEditComponent } from './components/article/article-edit/article-edit.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
     WeekAdsComponent,
     AdsListComponent,
     NavbarComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    ArticleReadComponent,
+    ReadArticlePageComponent,
+    EditArticlePageComponent,
+    ArticleEditComponent
   ],
   imports: [
     BrowserModule,

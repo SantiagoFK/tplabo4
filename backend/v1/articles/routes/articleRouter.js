@@ -1,6 +1,7 @@
 const express = require('express')
 const {
     getArticles,
+    getArticleById,
     postArticle,
     deleteArticle,
     updateArticle
@@ -9,6 +10,7 @@ const {
 const articleRouter = express.Router()
 
 articleRouter.get("/", getArticles)
+articleRouter.get("/:id", getArticleById)
 articleRouter.post("/", postArticle)
 articleRouter.delete("/:id", deleteArticle)
 articleRouter.patch("/:id", updateArticle)

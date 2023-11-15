@@ -14,6 +14,38 @@ const getArticles = async (req, res) => {
     return res.status(500).json({ error: "Server error: Something happenned while fetching articles. "})
 }
 
+const getArticleById = async (req, res) => {
+    const { id } = req.params
+
+    if( id )
+    {
+        if( mongoose.Types.ObjectId.isValid(id) )
+        {
+            try
+            {
+                const article = await Article.findById(id)
+    
+                if ( ! article  )
+                {
+                    return res.status(400).json({ error: `No article was found with id ${id}`})
+                }
+
+                return res.status(200).json(article) 
+    
+            }catch(error)
+            {
+                console.log(error)
+            }
+        }else
+        {
+            return res.status(400).json({ error: `Invalid ID ${id}.`})
+        }
+
+    }
+
+    return res.status(400).json({ error: "No ID was given as url parameter."})
+}
+
 const postArticle = async (req, res) => {
     const { title, author, body, created, updated } = req.body
 
@@ -111,7 +143,8 @@ const updateArticle = async (req, res) => {
 
 module.exports = {
     getArticles,
+    getArticleById,
     postArticle,
     deleteArticle,
-    updateArticle
+    updateArticle,
 }

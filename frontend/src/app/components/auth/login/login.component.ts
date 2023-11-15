@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class LoginComponent {
   })
 
   constructor(private fb: FormBuilder, 
-              private authService: AuthService){}
+              private authService: AuthService,
+              private router: Router){}
 
   login()
   {
@@ -27,6 +29,7 @@ export class LoginComponent {
       const pass = this.userForm.controls['password'].value
 
       this.authService.login(email, pass)
+      this.router.navigate([''])
     }
   }
 }

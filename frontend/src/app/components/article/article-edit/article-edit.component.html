@@ -1,0 +1,22 @@
+<form (submit)="saveArticle()" [formGroup]="articleForm" class="create-form">
+    <div>
+        <label for="title">Title:</label><br>
+        <input type="text" name="title" id="title" formControlName="title" class="simple-input">
+    </div>
+
+    <div>
+        <label for="author">Author:</label><br>
+        <input type="text" name="author" id="author" formControlName="author" class="simple-input">
+    </div>
+
+    <div>
+        <label for="body">Body:</label><br>
+        <textarea name="body" id="body" formControlName="body" class="body-input">
+        </textarea>
+    </div>
+    
+    <div class="article-actions">
+        <button type="submit" class="form-btn">Update <i class="bi bi-pencil-fill"></i> </button>
+        <button class="form-btn" (click)="cancelUpdate()">Cancel <i class="bi bi-x-circle"></i> </button>
+    </div>
+</form>

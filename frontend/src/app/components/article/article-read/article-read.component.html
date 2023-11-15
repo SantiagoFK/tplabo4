@@ -1,0 +1,21 @@
+<div class="article-read-container">
+    <h2>{{ article?.title }}</h2>
+    <p class="article-author"> Written by: {{ article?.author }}</p>
+    <p> Date: {{ article?.created }}</p>
+    <p class="article-text"> {{ article?.body }}</p>
+
+    <div class="article-actions">    
+        <button class="action-btn" [routerLink]="['/edit', article?._id]">Update <i class="bi bi-pencil-fill"></i></button>
+
+        <button (click)="deleteArticle(article?._id)" 
+            class="action-btn">Delete <i class="bi bi-x-circle"></i></button>    
+        
+        <button class="action-btn">Vote as ADS <i class="bi bi-star-fill"></i></button>
+
+        <button class="action-btn">Upvote <i class="bi bi-arrow-up-circle-fill"></i></button>
+
+    </div>
+</div>
+
+
+

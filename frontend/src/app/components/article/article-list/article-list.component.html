@@ -4,11 +4,14 @@
     <div *ngIf="articles.length > 0; else noArticles" class="article-list">
         <h3>New Articles</h3>
         <div *ngFor="let article of articles">
-            <div class="article">
-                <h2>{{ article.title }}</h2>
-                <p> by {{ article.author }}</p>
-                <p>{{ article.body.slice(0, 25) }} ... </p>
-            </div>
+            <a href="" [routerLink]="['/read', article._id]">
+                <div class="article">
+                    <h2>{{ article.title }}</h2>
+                    <p> by {{ article.author }}</p>
+                    <p>{{ article.body.slice(0, 25) }} ... </p>
+                    <p>{{ article.created }} </p>
+                </div>
+            </a>
         </div>
     </div>
 

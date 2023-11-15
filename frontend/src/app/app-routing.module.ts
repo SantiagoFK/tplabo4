@@ -5,10 +5,14 @@ import { CreatePageComponent } from './pages/create-page/create-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { AuthGuard } from './guards/auth-guard';
+import { ReadArticlePageComponent } from './pages/read-article-page/read-article-page.component';
+import { EditArticlePageComponent } from './pages/edit-article-page/edit-article-page.component';
 
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
+  {path: 'read/:id', component: ReadArticlePageComponent},
+  {path: 'edit/:id', component: EditArticlePageComponent},
   /*{path: 'create-article', component: CreatePageComponent, canActivate:[AuthGuard]},*/
   {path: 'create-article', component: CreatePageComponent},
   {path: 'login', component: LoginPageComponent},

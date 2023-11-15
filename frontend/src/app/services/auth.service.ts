@@ -27,8 +27,6 @@ export class AuthService
         const user = await response.json()
         //save user in localstorage
         localStorage.setItem('user', JSON.stringify(user))
-        
-        console.log(localStorage.getItem('user'))
       }
 
     }catch(error)
@@ -42,7 +40,6 @@ export class AuthService
   {
     if( localStorage.getItem('user') )
     {
-      console.log(localStorage.getItem('user'))
       return true
     }
 
