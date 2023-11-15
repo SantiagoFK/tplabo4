@@ -24,6 +24,8 @@ import { ArticleReadComponent } from './components/article/article-read/article-
 import { ReadArticlePageComponent } from './pages/read-article-page/read-article-page.component';
 import { EditArticlePageComponent } from './pages/edit-article-page/edit-article-page.component';
 import { ArticleEditComponent } from './components/article/article-edit/article-edit.component';
+import { StatsPageComponent } from './pages/stats-page/stats-page.component';
+import { StatsComponent } from './components/shared/stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { ArticleEditComponent } from './components/article/article-edit/article-
     ArticleReadComponent,
     ReadArticlePageComponent,
     EditArticlePageComponent,
-    ArticleEditComponent
+    ArticleEditComponent,
+    StatsPageComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,7 @@
     <p class="article-text"> {{ article?.body }}</p>
 
     <div class="article-actions">    
-        <button class="action-btn" [routerLink]="['/edit', article?._id]">Update <i class="bi bi-pencil-fill"></i></button>
+        <button class="action-btn" [routerLink]="['/article/edit', article?._id]">Update <i class="bi bi-pencil-fill"></i></button>
 
         <button (click)="deleteArticle(article?._id)" 
             class="action-btn">Delete <i class="bi bi-x-circle"></i></button>    

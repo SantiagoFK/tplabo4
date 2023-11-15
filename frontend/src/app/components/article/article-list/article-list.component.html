@@ -4,7 +4,7 @@
     <div *ngIf="articles.length > 0; else noArticles" class="article-list">
         <h3>New Articles</h3>
         <div *ngFor="let article of articles">
-            <a href="" [routerLink]="['/read', article._id]">
+            <a href="" [routerLink]="['/article/read', article._id]">
                 <div class="article">
                     <h2>{{ article.title }}</h2>
                     <p> by {{ article.author }}</p>
