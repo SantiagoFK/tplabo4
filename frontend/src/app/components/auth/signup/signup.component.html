@@ -1,4 +1,4 @@
-<form (submit)="signup()" [formGroup]="userForm">
+<form (submit)="signup()" [formGroup]="userForm" class="create-form">
     <div>
         <label for="email">Email:</label><br>
         <input type="email" name="email" id="email" formControlName="email">
@@ -9,5 +9,5 @@
         <input type="password" name="password" id="password" formControlName="password">
     </div>
 
-    <button type="submit">Signup</button>
+    <button type="submit" class="form-btn">Signup</button>
 </form>
