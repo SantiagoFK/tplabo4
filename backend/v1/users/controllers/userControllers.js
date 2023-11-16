@@ -25,7 +25,7 @@ const loginUser = async (req, res) => {
     try
     {
         const user = await User.findOne({ email: email })
-
+        
         if( ! user )
         {
             return res.status(404).json({ error: "No user found with such email, try signing up."})
@@ -39,8 +39,9 @@ const loginUser = async (req, res) => {
         }
 
         const token = createToken(user._id)
+        const username = user.username
 
-        return res.status(200).json({email, token})
+        return res.status(200).json({email, token, username})
         
     }catch(error)
     {
@@ -51,9 +52,9 @@ const loginUser = async (req, res) => {
 }
 
 const signupUser = async (req, res) => {
-    const { email, password } = req.body
+    const { email, password, username } = req.body
 
-    if( !email || !password  )
+    if( !email || !password || !username )
     {
         return res.status(400).json({ error: "All fields must be filled. "})
     }
@@ -64,19 +65,30 @@ const signupUser = async (req, res) => {
     }
 
     const emailExists = await User.findOne({ email: email })
+    const usernameExists = await User.findOne({ username: username})
 
     if( emailExists )
     {
         return res.status(400).json({ error: "Email already in use. Try logging in."})
     }
 
+    if( usernameExists )
+    {
+        return res.status(400).json({ error: "Username already in use. Try logging in."})
+    }
+
     const salt = bcrypt.genSaltSync(SALT_FACTOR)
     const hashPass = bcrypt.hashSync(password, salt)
 
     try{
-        const user = await User.create({ email: email, password: hashPass })
+        const user = await User.create({ 
+            email: email, 
+            password: hashPass, 
+            username: username
+        })
+
         const token = createToken(user._id)
-        return res.status(201).json({email, token})
+        return res.status(201).json({email, token, username})
     }catch(error)
     {
         console.log(error)

@@ -1,6 +1,6 @@
 
 
-<div class="articles-container">
+<div class="articles-container" id="articles">
     <div *ngIf="articles.length > 0; else noArticles" class="article-list">
         <h3>New Articles</h3>
         <div *ngFor="let article of articles">
@@ -8,8 +8,8 @@
                 <div class="article">
                     <h2>{{ article.title }}</h2>
                     <p> by {{ article.author }}</p>
-                    <p>{{ article.body.slice(0, 25) }} ... </p>
-                    <p>{{ article.created }} </p>
+                    <p class="article-body">{{ article.body.slice(0, 25) }} ... </p>
+                    <p class="article-date">{{ article.created | date:"MMM dd, yyyy 'at' hh:mm a" }} </p>
                 </div>
             </a>
         </div>

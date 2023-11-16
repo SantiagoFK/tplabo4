@@ -1,0 +1,26 @@
+backend y mongodb:
+- https://www.youtube.com/@NetNinja
+- manuales
+
+frontend:
+- https://www.youtube.com/@YouTics
+- https://github.com/gchaldu/angular-crud-json-server-http
+- https://github.com/gchaldu/angular-functionla.guard-login
+- manuales
+
+dropdown hover navbar:
+https://www.w3schools.com/howto/howto_css_dropdown.asp
+
+animaciones dropdown para el navbar:
+- https://codepen.io/codypearce/pen/PdBXpj
+
+imagenes gif:
+- https://giphy.com/xponentialdesign
+- https://giphy.com/siemens_
+
+iconos:
+https://icons.getbootstrap.com/
+
+diseño inspirado en:
+- https://www.codecraftsmen.io/
+- https://rpcs3.net/

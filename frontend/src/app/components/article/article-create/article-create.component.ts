@@ -32,7 +32,7 @@ export class ArticleCreateComponent {
         title: this.articleForm.controls['title'].value,
         author: this.articleForm.controls['author'].value,
         body: this.articleForm.controls['body'].value,
-        created: new Date().toLocaleString()
+        created: new Date()
       }
 
       this.articleService.postArticle(article).subscribe(

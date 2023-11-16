@@ -1,7 +1,7 @@
 <div class="article-read-container">
     <h2>{{ article?.title }}</h2>
     <p class="article-author"> Written by: {{ article?.author }}</p>
-    <p> Date: {{ article?.created }}</p>
+    <p> Date: {{  article?.created | date:"MMM dd, yyyy 'at' hh:mm a"  }}</p>
     <p class="article-text"> {{ article?.body }}</p>
 
     <div class="article-actions">    

@@ -5,5 +5,5 @@ export interface Article
     title: String,
     author: String,
     body: String,
-    created: String
+    created: Date
 }

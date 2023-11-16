@@ -15,7 +15,7 @@ export class NavbarComponent{
     return this.authService.userIsLoggedIn()
   }
 
-  getEmail(): string
+  getUsername(): string
   {
     if( this.userIsLoggedIn() )
     {
@@ -23,8 +23,8 @@ export class NavbarComponent{
       if(token)
       {
         let obj = JSON.parse(token!)
-        let { email } = obj
-        return email
+        let { username } = obj
+        return username
       }
       else{
         return 'User'
@@ -32,5 +32,10 @@ export class NavbarComponent{
     }
 
     return ''
+  }
+
+  logout()
+  {
+    return this.authService.logout()
   }
 }

@@ -1,13 +1,25 @@
 <nav>
     <p>Techviews<i class="bi bi-code"></i></p>
     <a routerLink="" class="nav-page">Home</a>
+
+    <div id="dropdown">
+        <a href="" id="dropdown-btn">Articles</a>
+        <div id="dropdown-content">
+            <a href="#article-section">List</a>
+            <a href="" routerLink="article/create" *ngIf="userIsLoggedIn()">Create</a>
+        </div>
+    </div>
+    
     <a routerLink="login" class="nav-page" *ngIf="! userIsLoggedIn()">Login</a>
+
     <a routerLink="signup" class="nav-page" *ngIf="! userIsLoggedIn()">Signup</a>
-    <a href="" class="nav-page" *ngIf="userIsLoggedIn()">Hello {{ getEmail() }}!</a>
-    <a routerLink="article/create" class="nav-page" *ngIf="userIsLoggedIn()">Create</a>
-    <a href="" class="nav-page" *ngIf="userIsLoggedIn()">Logout</a>
+
+    <a href="" class="nav-page" *ngIf="userIsLoggedIn()"> {{ getUsername() }} </a>
+
+    <a href="" class="nav-page" *ngIf="userIsLoggedIn()" (click)="logout()">Logout</a>
+    
     <a routerLink="/stats" class="nav-page">Stats</a>
-    <!--<span (click)="logout()" class="btn-logout">LOGOUT</span>-->
+
     <div class="nav-link-container">
         <a href="" class="nav-link"><i class="bi bi-twitter-x"></i></a>
         <a href="" class="nav-link"><i class="bi bi-github"></i></a>

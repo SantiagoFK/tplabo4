@@ -9,7 +9,6 @@ export class AuthService
 {
   
   url: string = 'http://localhost:4000/v1/users'
-  //user: User | undefined = undefined
 
   constructor(private http: HttpClient) { }
 
@@ -46,17 +45,17 @@ export class AuthService
     return false
   }
   
-  logout()
+  logout(): void
   {
     localStorage.clear()
   }
 
-  async signup(email: string, password: string)
+  async signup(email: string, username: string, password: string)
   {
     try{
       const response = await fetch(`${this.url}/signup`, {
         method: 'POST',
-        body: JSON.stringify({email, password}),
+        body: JSON.stringify({email, username, password}),
         headers: { 'Content-type': 'application/json' }
       })
 

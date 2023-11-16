@@ -22,9 +22,6 @@ export class LoginComponent {
   {
     if( this.userForm.valid )
     {
-      console.log("login")
-      console.log(this.userForm.controls['email'].value)
-      
       const email = this.userForm.controls['email'].value
       const pass = this.userForm.controls['password'].value
 

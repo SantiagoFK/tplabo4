@@ -40,7 +40,6 @@ export class ArticleEditComponent implements OnInit{
     this.articleService.getArticleById(this.articleId).subscribe(
       {
         next: (article) => {
-          console.log("FROM EDIT ", article.title)
           this.articleForm = this.fb.nonNullable.group({
             title: [article.title, Validators.required],
             author: [article.author, Validators.required],
@@ -66,7 +65,7 @@ export class ArticleEditComponent implements OnInit{
         title: this.articleForm.controls['title'].value,
         author: this.articleForm.controls['author'].value,
         body: this.articleForm.controls['body'].value,
-        created: new Date().toLocaleString()
+        created: new Date()
       }
 
       this.articleService.updateArticle(article).subscribe(
