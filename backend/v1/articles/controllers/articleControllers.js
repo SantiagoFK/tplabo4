@@ -113,7 +113,6 @@ const deleteArticle = async (req, res) => {
 
 const updateArticle = async (req, res) => {
     const { id } = req.params
-    console.log("update: ", id)
 
     if( id )
     {
@@ -149,12 +148,19 @@ const getArticleStats = async (req, res) => {
         const articleCount = await Article.find().count()
 
         //sum all upvotes in all articles with aggregate function sum()
-        const query = await Article.aggregate([{$group: {_id: null, upvotesCount:{$sum: "$upvotes"}}}])
-        const { upvotesCount } = query[0]
+        const query = await Article.aggregate([{
+            $group: {
+                _id: null, 
+                upvotesCount:{$sum: "$upvotes"},
+                adsvotesCount:{$sum: "$adsvotes"}
+            }
+        }])
+        const { upvotesCount, adsvotesCount } = query[0]
 
         return res.status(200).json({
             articleCount: articleCount,
-            upvotesCount: upvotesCount
+            upvotesCount: upvotesCount,
+            adsvotesCount: adsvotesCount
         })
     }catch(error)
     {

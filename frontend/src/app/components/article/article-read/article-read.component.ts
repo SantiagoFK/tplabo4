@@ -33,7 +33,6 @@ export class ArticleReadComponent implements OnInit{
     this.articleService.getArticleById(this.articleId).subscribe(
       {
         next: (article) => {
-          console.log(article)
           this.article = article
         },
         error: (error) => {
@@ -73,13 +72,35 @@ export class ArticleReadComponent implements OnInit{
       author: this.article!.author,
       body: this.article!.body,
       created: this.article!.created,
-      upvotes: ++(this.article!.upvotes)!
+      upvotes: ++(this.article!.upvotes)!, //upvotes are incremented
+      adsvotes: (this.article!.adsvotes)!,
+      isADS: this.article!.isADS
     }
      
     this.articleService.updateArticle(article).subscribe({
-        next: (article) => {
-          console.log('User upvoted')
-        },
+        error: (error) => {
+          console.log(error)
+        }
+    })
+  }
+
+  saveADSVote()
+  {
+    console.log("ads voted")
+
+    const article: Article = {
+      _id: this.articleId,
+      title: this.article!.title,
+      author: this.article!.author,
+      body: this.article!.body,
+      created: this.article!.created,
+      upvotes: this.article!.upvotes,
+      adsvotes: ++(this.article!.adsvotes)!, //ads votes are modified
+      isADS: this.article!.isADS,
+      wasADS: this.article!.wasADS
+    }
+     
+    this.articleService.updateArticle(article).subscribe({
         error: (error) => {
           console.log(error)
         }

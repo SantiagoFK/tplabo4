@@ -70,7 +70,7 @@ export class ArticleEditComponent implements OnInit{
       this.articleService.updateArticle(article).subscribe(
         {
           next: (article) => {
-            console.log('Save:', article)
+            console.log(article)
             this.router.navigate([''])
           },
           error: (error) => {

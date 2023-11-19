@@ -6,5 +6,8 @@ export interface Article
     author: String,
     body: String,
     created: Date,
-    upvotes?: number
+    upvotes?: number,
+    adsvotes?: number,
+    isADS?: boolean,
+    wasADS?: boolean
 }

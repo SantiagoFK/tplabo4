@@ -4,6 +4,9 @@
     <p> Date: {{  article?.created | date:"MMM dd, yyyy 'at' hh:mm a"  }}</p>
     <p class="article-text"> {{ article?.body }}</p>
     <p> Upvotes: {{ article?.upvotes }} </p>
+    <p> ADS votes: {{ article?.adsvotes }}</p>
+    <p> IS ADS: {{ article?.isADS }}</p>
+    <p> WAS ADS: {{ article?.wasADS }}</p>
 
     <div class="article-actions" *ngIf="userIsLoggedIn()">    
         <button class="action-btn" [routerLink]="['/article/edit', article?._id]">Update <i class="bi bi-pencil-fill"></i></button>
@@ -11,7 +14,7 @@
         <button (click)="deleteArticle(article?._id)" 
             class="action-btn">Delete <i class="bi bi-x-circle"></i></button>    
         
-        <button class="action-btn">Vote as ADS <i class="bi bi-star-fill"></i></button>
+        <button class="action-btn" (click)=saveADSVote()>Vote as ADS <i class="bi bi-star-fill"></i></button>
 
         <button class="action-btn" (click)="saveUpvote()">Upvote <i class="bi bi-arrow-up-circle-fill"></i></button>
     </div>
@@ -23,7 +26,7 @@
         <a (click)="deleteArticle(article?._id)" 
             class="action-btn-mobile">Delete<i class="bi bi-x-circle"></i></a>    
         
-        <a class="action-btn-mobile">ADS<i class="bi bi-star-fill"></i></a>
+        <a class="action-btn-mobile" (click)="saveADSVote()">ADS<i class="bi bi-star-fill"></i></a>
 
         <a class="action-btn-mobile" (click)="saveUpvote()">Upvote<i class="bi bi-arrow-up-circle-fill"></i></a>
     </div>

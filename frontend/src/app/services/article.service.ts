@@ -22,7 +22,10 @@ export class ArticleService {
             author: article.author,
             body: article.body,
             created: article.created,
-            upvotes: article.upvotes
+            upvotes: article.upvotes,
+            adsvotes: article.adsvotes,
+            isADS: article.isADS,
+            wasADS: article.wasADS
           }
         })
       }),
@@ -39,8 +42,8 @@ export class ArticleService {
     try{
       const response = await fetch(`${this.url}/stats`)
       const stats = await response.json()
-      const { articleCount, upvotesCount } = stats 
-      return { articleCount, upvotesCount }
+      const { articleCount, upvotesCount, adsvotesCount } = stats 
+      return { articleCount, upvotesCount, adsvotesCount }
     }catch(error)
     {
       console.log(error)
@@ -59,7 +62,10 @@ export class ArticleService {
           author: article.author,
           body: article.body,
           created: article.created,
-          upvotes: article.upvotes
+          upvotes: article.upvotes,
+          adsvotes: article.adsvotes,
+          isADS: article.isADS,
+          wasADS: article.wasADS
         }
       }),
 
