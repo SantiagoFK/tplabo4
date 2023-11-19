@@ -4,7 +4,7 @@
     <p> Date: {{  article?.created | date:"MMM dd, yyyy 'at' hh:mm a"  }}</p>
     <p class="article-text"> {{ article?.body }}</p>
 
-    <div class="article-actions">    
+    <div class="article-actions" *ngIf="userIsLoggedIn()">    
         <button class="action-btn" [routerLink]="['/article/edit', article?._id]">Update <i class="bi bi-pencil-fill"></i></button>
 
         <button (click)="deleteArticle(article?._id)" 
@@ -15,7 +15,7 @@
         <button class="action-btn">Upvote <i class="bi bi-arrow-up-circle-fill"></i></button>
     </div>
 
-    <div class="article-actions-mobile">
+    <div class="article-actions-mobile" *ngIf="userIsLoggedIn()">
         
         <a class="action-btn-mobile" [routerLink]="['/article/edit', article?._id]">Update<i class="bi bi-pencil-fill"></i></a>
 

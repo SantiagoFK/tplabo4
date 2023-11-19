@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from 'src/app/interfaces/Article';
 import { ArticleService } from 'src/app/services/article.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-article-read',
@@ -14,7 +15,8 @@ export class ArticleReadComponent implements OnInit{
 
   constructor(private articleService: ArticleService, 
               private route: ActivatedRoute,
-              private router: Router){}
+              private router: Router,
+              private authService: AuthService){}
 
   ngOnInit(): void {
     this.getArticle()
@@ -59,6 +61,11 @@ export class ArticleReadComponent implements OnInit{
             }
           })
       }
+  }
+
+  userIsLoggedIn(): boolean
+  {
+    return this.authService.userIsLoggedIn()
   }
 
 }
