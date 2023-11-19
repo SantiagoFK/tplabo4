@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ArticleReadComponent implements OnInit{
   article: Article | undefined = undefined
+  articleId: string = ''
   editMode: boolean = false
 
   constructor(private articleService: ArticleService, 
@@ -18,21 +19,18 @@ export class ArticleReadComponent implements OnInit{
               private router: Router,
               private authService: AuthService){}
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    this.route.params.subscribe(async params => {
+      this.articleId = params['id'];
+    })
+
     this.getArticle()
   }
 
   getArticle()
   {
-    let articleId: string = ''
-
-    this.route.params.subscribe(async params => {
-      articleId = params['id'];
-    })
-
-    console.log(articleId)
-
-    this.articleService.getArticleById(articleId).subscribe(
+    this.articleService.getArticleById(this.articleId).subscribe(
       {
         next: (article) => {
           console.log(article)
@@ -47,7 +45,6 @@ export class ArticleReadComponent implements OnInit{
 
   deleteArticle(id: String | undefined)
   {
-      console.log()
       const ok = window.confirm(`Delete article with id: ${id}. Are you sure?`)
       if( ok )
       {
@@ -71,24 +68,22 @@ export class ArticleReadComponent implements OnInit{
   saveUpvote()
   {
     const article: Article = {
+      _id: this.articleId,
       title: this.article!.title,
       author: this.article!.author,
       body: this.article!.body,
       created: this.article!.created,
-      upvotes: (this.article!.upvotes)! + 1
+      upvotes: ++(this.article!.upvotes)!
     }
-
-    this.articleService.updateArticle(article).subscribe(
-      {
+     
+    this.articleService.updateArticle(article).subscribe({
         next: (article) => {
-          console.log('Save:', article)
-          this.router.navigate([''])
+          console.log('User upvoted')
         },
         error: (error) => {
           console.log(error)
         }
-      }
-    )  
+    })
   }
 
 }

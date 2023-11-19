@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class StatsComponent implements OnInit{
   articleCount : number = 0
   userCount: number = 0
+  upvotesCount: number = 0
 
   constructor(private articleService: ArticleService,
               private authService: AuthService){}
@@ -21,8 +22,9 @@ export class StatsComponent implements OnInit{
 
   async getArticleStats()
   {
-    const { articleCount } = await this.articleService.getArticleStats()
+    const { articleCount, upvotesCount } = await this.articleService.getArticleStats()
     this.articleCount = articleCount
+    this.upvotesCount = upvotesCount
   }
 
   async getUserStats()

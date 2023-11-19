@@ -12,7 +12,6 @@ import { Article } from 'src/app/interfaces/Article';
 export class ArticleEditComponent implements OnInit{
   articleId: string = ''
 
-
   articleForm: FormGroup = this.fb.group({
     title: [''],
     author: [''],
@@ -35,7 +34,6 @@ export class ArticleEditComponent implements OnInit{
 
   initForm()
   {
-
 
     this.articleService.getArticleById(this.articleId).subscribe(
       {
@@ -62,6 +60,7 @@ export class ArticleEditComponent implements OnInit{
       }
       
       const article: Article = {
+        _id: this.articleId,
         title: this.articleForm.controls['title'].value,
         author: this.articleForm.controls['author'].value,
         body: this.articleForm.controls['body'].value,

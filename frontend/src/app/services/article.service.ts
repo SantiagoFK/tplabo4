@@ -39,8 +39,8 @@ export class ArticleService {
     try{
       const response = await fetch(`${this.url}/stats`)
       const stats = await response.json()
-      const { articleCount } = stats 
-      return { articleCount }
+      const { articleCount, upvotesCount } = stats 
+      return { articleCount, upvotesCount }
     }catch(error)
     {
       console.log(error)
@@ -83,7 +83,7 @@ export class ArticleService {
 
   updateArticle(article: Article): Observable<Article>
   {
-    return this.http.put<Article>(
+    return this.http.patch<Article>(
       `${this.url}/${article._id}`,
       article,
       {
