@@ -109,8 +109,22 @@ const getAllUsers = async (req, res) => {
     return res.status(500).json({ error: "Server error: Something happenned while fetching articles. "})
 }
 
+const getUserStats = async (req, res) => {
+    try
+    {
+        const userCount = await User.find().count()
+        return res.status(200).json({userCount: userCount})
+    }catch(error)
+    {
+        console.log(error)
+    }
+
+    return res.status(500).json({ error: "Server error: Something happenned while fetching articles. "})
+}
+
 module.exports = {
     loginUser,
     signupUser,
+    getUserStats,
     getAllUsers
 }

@@ -68,4 +68,27 @@ export class ArticleReadComponent implements OnInit{
     return this.authService.userIsLoggedIn()
   }
 
+  saveUpvote()
+  {
+    const article: Article = {
+      title: this.article!.title,
+      author: this.article!.author,
+      body: this.article!.body,
+      created: this.article!.created,
+      upvotes: (this.article!.upvotes)! + 1
+    }
+
+    this.articleService.updateArticle(article).subscribe(
+      {
+        next: (article) => {
+          console.log('Save:', article)
+          this.router.navigate([''])
+        },
+        error: (error) => {
+          console.log(error)
+        }
+      }
+    )  
+  }
+
 }

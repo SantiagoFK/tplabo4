@@ -141,8 +141,22 @@ const updateArticle = async (req, res) => {
     return res.status(400).json({ error: "No ID was given as url parameter."})
 }
 
+const getArticleStats = async (req, res) => {
+    try
+    {
+        const articleCount = await Article.find().count()
+        return res.status(200).json({articleCount: articleCount})
+    }catch(error)
+    {
+        console.log(error)
+    }
+
+    return res.status(500).json({ error: "Server error: Something happenned while fetching articles. "})
+}
+
 module.exports = {
     getArticles,
+    getArticleStats,
     getArticleById,
     postArticle,
     deleteArticle,

@@ -21,7 +21,8 @@ export class ArticleService {
             title: article.title,
             author: article.author,
             body: article.body,
-            created: article.created
+            created: article.created,
+            upvotes: article.upvotes
           }
         })
       }),
@@ -33,6 +34,21 @@ export class ArticleService {
     )
   }
 
+  async getArticleStats()
+  {
+    try{
+      const response = await fetch(`${this.url}/stats`)
+      const stats = await response.json()
+      const { articleCount } = stats 
+      return { articleCount }
+    }catch(error)
+    {
+      console.log(error)
+    }
+
+    return {}
+  }
+
   getArticleById(_id: string): Observable<Article>
   {
     return this.http.get<Article>(`${this.url}/${_id}`).pipe(
@@ -42,7 +58,8 @@ export class ArticleService {
           title: article.title,
           author: article.author,
           body: article.body,
-          created: article.created
+          created: article.created,
+          upvotes: article.upvotes
         }
       }),
 

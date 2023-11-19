@@ -3,6 +3,7 @@
     <p class="article-author"> Written by: {{ article?.author }}</p>
     <p> Date: {{  article?.created | date:"MMM dd, yyyy 'at' hh:mm a"  }}</p>
     <p class="article-text"> {{ article?.body }}</p>
+    <p> Upvotes: {{ article?.upvotes }} </p>
 
     <div class="article-actions" *ngIf="userIsLoggedIn()">    
         <button class="action-btn" [routerLink]="['/article/edit', article?._id]">Update <i class="bi bi-pencil-fill"></i></button>
@@ -12,7 +13,7 @@
         
         <button class="action-btn">Vote as ADS <i class="bi bi-star-fill"></i></button>
 
-        <button class="action-btn">Upvote <i class="bi bi-arrow-up-circle-fill"></i></button>
+        <button class="action-btn" (click)="saveUpvote()">Upvote <i class="bi bi-arrow-up-circle-fill"></i></button>
     </div>
 
     <div class="article-actions-mobile" *ngIf="userIsLoggedIn()">
@@ -24,7 +25,7 @@
         
         <a class="action-btn-mobile">ADS<i class="bi bi-star-fill"></i></a>
 
-        <a class="action-btn-mobile">Upvote<i class="bi bi-arrow-up-circle-fill"></i></a>
+        <a class="action-btn-mobile" (click)="saveUpvote()">Upvote<i class="bi bi-arrow-up-circle-fill"></i></a>
     </div>
 </div>
 

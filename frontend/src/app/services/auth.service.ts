@@ -69,5 +69,20 @@ export class AuthService
       console.log(error)
     }
   }
+
+  async getUserStats()
+  {
+    try{
+      const response = await fetch(`${this.url}/stats`)
+      const stats = await response.json()
+      const { userCount } = stats 
+      return { userCount }
+    }catch(error)
+    {
+      console.log(error)
+    }
+
+    return {}
+  }
   
 }

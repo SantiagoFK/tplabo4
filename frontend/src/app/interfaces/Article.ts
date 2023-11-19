@@ -5,5 +5,6 @@ export interface Article
     title: String,
     author: String,
     body: String,
-    created: Date
+    created: Date,
+    upvotes?: number
 }
