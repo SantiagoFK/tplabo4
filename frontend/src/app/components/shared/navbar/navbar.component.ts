@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent{
-
+  mobileMode: boolean = false
   constructor(private authService: AuthService){}
 
   userIsLoggedIn(): boolean
@@ -37,5 +37,14 @@ export class NavbarComponent{
   logout()
   {
     return this.authService.logout()
+  }
+
+  openSideBar(){
+    this.mobileMode = true 
+  }
+
+  closeSideBar()
+  {
+    this.mobileMode = false
   }
 }

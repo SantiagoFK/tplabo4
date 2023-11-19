@@ -1,0 +1,18 @@
+[33m64c2ef7[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Added username support: users now have username too. Made improvements in navbar, fixed dates with pipes. Added stats page.
+[33m0038384[m pre username commit
+[33md8d4fbd[m Added read article, delete article, edit article components, fully working with the authService and articleService. Added custom navbar changing login, signup or greeting, depending if the user is logged in. Added multiple style improvements.
+[33m68b69c4[m Finished basic frontend, added create-article, login, signup styles.
+[33m08a50a1[m Basic home page design finished
+[33mafa7eba[m Pre component re-arrange commit
+[33m3810c0a[m Made basic landing page design, added moving background to header, fixed navbar, 3 subbanners, color corrections.
+[33mfd1c7b3[m Made basic html and css home page design, added ads component, ads list component. Normalize css.
+[33ma91f187[m Create article functional guard (AuthGuard) working. Added auth service, a GET all users in the backend.
+[33mcf94873[m Finished basic article crud service. Added POST article form. Articles now can be seen and created from the frontend. Added shared components like header and footer, article-create components and create, login, register pages (only pages).
+[33mb7fd3c5[m Made back/front api connection with http client observables. GET articles working OK. Added homepage component, articles list component. Basic routing setup
+[33m57ffe7d[m Basic server sockets setup
+[33m54af3eb[m Basic user authentication finished. Users can now login and signup, the server provides a json web token which is used to authorize content only for users. Password is encripted and only known by users.
+[33m6bf6657[m User authentication feature started: basic user model finished (with bcrypt and validators), added user router to handle endpoints at /users, added dummy user controllers to handle each endpoint for GET, POST, DELETE and PATCH.
+[33m5272232[m mongo cloud database connected, added GET all articles request, and POST an article request, both successfully exchange data with cloud db.
+[33mb4c6f9e[m Created article Model. Added api v1 router, which contains Article router with all its routes for CRUD.
+[33m6dbf63a[m Made basic setup of backend folders, installed morgan dependency.
+[33mb3e316c[m Basic repository initialization and basic setup. Added express, nodemon, and a dummy html page to test connection.

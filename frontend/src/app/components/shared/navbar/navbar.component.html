@@ -1,30 +1,67 @@
 <nav>
-    <p>Techviews<i class="bi bi-code"></i></p>
-    <a routerLink="" class="nav-page">Home</a>
+    <div class="nav-brand">
+        <a href="" routerLink="">
+            <p> Techviews <br>
+                <i class="bi bi-code"></i>
+            </p>
+        </a>
+    </div>
 
-    <div id="dropdown">
-        <a href="" id="dropdown-btn">Articles</a>
-        <div id="dropdown-content">
-            <a href="#article-section">List</a>
-            <a href="" routerLink="article/create" *ngIf="userIsLoggedIn()">Create</a>
+    <div class="desktop-nav">
+        <a routerLink="" class="nav-page">Home</a>
+
+        <div id="dropdown">
+            <a href="" id="dropdown-btn">Articles</a>
+            <div id="dropdown-content">
+                <a href="#article-section">List</a>
+                <a href="" routerLink="article/create" *ngIf="userIsLoggedIn()">Create</a>
+            </div>
+        </div>
+        
+        <a routerLink="login" class="nav-page" *ngIf="! userIsLoggedIn()">Login</a>
+
+        <a routerLink="signup" class="nav-page" *ngIf="! userIsLoggedIn()">Signup</a>
+
+        <a href="" class="nav-page" *ngIf="userIsLoggedIn()"> {{ getUsername() }} </a>
+
+        <a href="" class="nav-page" *ngIf="userIsLoggedIn()" (click)="logout()">Logout</a>
+        
+        <a routerLink="/stats" class="nav-page">Stats</a>
+
+        <div class="nav-link-container">
+            <a href="" class="nav-link"><i class="bi bi-twitter-x"></i></a>
+            <a href="" class="nav-link"><i class="bi bi-github"></i></a>
+            <a href="" class="nav-link"><i class="bi bi-instagram"></i></a>
+            <a href="" class="nav-link"><i class="bi bi-youtube"></i></a>
+            <a href="" class="nav-link"><i class="bi bi-discord"></i></a>
         </div>
     </div>
+
+    <div class="mobile-nav">
+        <p class="sidebar-open-btn" (click)="openSideBar()"><i class="bi bi-list"></i></p>
+
+        <div class="mobile-side-navbar" [ngClass]="mobileMode ? 'expanded' : ''">
+            <p class="sidebar-close-btn" (click)="closeSideBar()">&times;</p>
+
+            <a routerLink="">Home</a>
+
+            <a href="#article-section">Articles</a>
+
+            <a href="" routerLink="article/create" *ngIf="userIsLoggedIn()">Create</a>
+            
+            <a routerLink="login" *ngIf="! userIsLoggedIn()">Login</a>
     
-    <a routerLink="login" class="nav-page" *ngIf="! userIsLoggedIn()">Login</a>
-
-    <a routerLink="signup" class="nav-page" *ngIf="! userIsLoggedIn()">Signup</a>
-
-    <a href="" class="nav-page" *ngIf="userIsLoggedIn()"> {{ getUsername() }} </a>
-
-    <a href="" class="nav-page" *ngIf="userIsLoggedIn()" (click)="logout()">Logout</a>
+            <a routerLink="signup" *ngIf="! userIsLoggedIn()">Signup</a>
     
-    <a routerLink="/stats" class="nav-page">Stats</a>
+            <a href="" *ngIf="userIsLoggedIn()"> {{ getUsername() }} </a>
+    
+            <a href="" *ngIf="userIsLoggedIn()" (click)="logout()">Logout</a>
+            
+            <a routerLink="/stats">Stats</a>
+        </div>
+    </div>
 
-    <div class="nav-link-container">
-        <a href="" class="nav-link"><i class="bi bi-twitter-x"></i></a>
-        <a href="" class="nav-link"><i class="bi bi-github"></i></a>
-        <a href="" class="nav-link"><i class="bi bi-instagram"></i></a>
-        <a href="" class="nav-link"><i class="bi bi-youtube"></i></a>
-        <a href="" class="nav-link"><i class="bi bi-discord"></i></a>
+    <div class="create-btn">
+        <a href="" routerLink="article/create" *ngIf="userIsLoggedIn()"><i class="bi bi-plus-circle"></i></a>
     </div>
 </nav>

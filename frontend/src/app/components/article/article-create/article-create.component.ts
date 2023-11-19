@@ -48,6 +48,12 @@ export class ArticleCreateComponent {
       )
       
   }
+  
 
+  validateField(field: string, errorType: string): boolean
+  {
+    return this.articleForm.controls[field].getError(errorType)
+      && this.articleForm.controls[field].touched
+  }
 
 }

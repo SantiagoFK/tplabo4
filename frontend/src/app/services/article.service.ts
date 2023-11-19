@@ -16,7 +16,6 @@ export class ArticleService {
     return this.http.get<Article[]>(this.url).pipe(
       map(articles => {
         return articles.map(article => {
-          console.log(article)
           return {
             _id: article._id,
             title: article.title,

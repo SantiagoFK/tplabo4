@@ -13,7 +13,18 @@
         <button class="action-btn">Vote as ADS <i class="bi bi-star-fill"></i></button>
 
         <button class="action-btn">Upvote <i class="bi bi-arrow-up-circle-fill"></i></button>
+    </div>
 
+    <div class="article-actions-mobile">
+        
+        <a class="action-btn-mobile" [routerLink]="['/article/edit', article?._id]">Update<i class="bi bi-pencil-fill"></i></a>
+
+        <a (click)="deleteArticle(article?._id)" 
+            class="action-btn-mobile">Delete<i class="bi bi-x-circle"></i></a>    
+        
+        <a class="action-btn-mobile">ADS<i class="bi bi-star-fill"></i></a>
+
+        <a class="action-btn-mobile">Upvote<i class="bi bi-arrow-up-circle-fill"></i></a>
     </div>
 </div>
 
