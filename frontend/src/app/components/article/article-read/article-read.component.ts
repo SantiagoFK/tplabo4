@@ -107,4 +107,31 @@ export class ArticleReadComponent implements OnInit{
     })
   }
 
+  userIsAuthor(): boolean
+  {
+    const currentUser = this.getUsername()
+    const author = this.article?.author
+
+    return (currentUser === author)
+  }
+
+  getUsername(): string
+  {
+    if( this.userIsLoggedIn() )
+    {
+      let token = localStorage.getItem('user')
+      if(token)
+      {
+        let obj = JSON.parse(token!)
+        let { username } = obj
+        return username
+      }
+      else{
+        return 'User'
+      }     
+    }
+
+    return ''
+  }
+
 }

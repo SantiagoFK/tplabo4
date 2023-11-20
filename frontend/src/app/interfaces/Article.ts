@@ -1,10 +1,10 @@
 //corresponde a un DTO
 export interface Article
 {
-    _id?: String,
-    title: String,
-    author: String,
-    body: String,
+    _id?: string,
+    title: string,
+    author: string,
+    body: string,
     created: Date,
     upvotes?: number,
     adsvotes?: number,
