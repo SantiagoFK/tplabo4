@@ -1,16 +1,23 @@
-
-
-<div class="article">
-    <h2>ads 1</h2>
-    <p> by author 1</p>
+<div *ngIf="previousADS; else noPreviousADS">
+    <div class="article" *ngFor="let ads of previousADS">
+        <a href="" [routerLink]="['/article/read', ads!._id]">
+            <h2>{{ ads.title }}</h2>
+            <p> by {{ ads.author }}</p>
+        </a>
+    </div>
 </div>
 
-<div class="article">
-    <h2>ads 2</h2>
-    <p> by author 2</p>
-</div>
-
-<div class="article">
-    <h2>ads 3</h2>
-    <p> by author 3</p>
-</div>
+<ng-template #noPreviousADS>
+    <div class="article">
+        <h2> ads1 title </h2>
+        <p> by ads1 author </p>
+    </div>
+    <div class="article">
+        <h2> ads2 title </h2>
+        <p> by ads2 author </p>
+    </div>
+    <div class="article">
+        <h2> ads3 title </h2>
+        <p> by ads3 author </p>
+    </div>
+</ng-template>  

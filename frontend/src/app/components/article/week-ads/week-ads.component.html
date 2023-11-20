@@ -1,5 +1,14 @@
-<div class="article ads">
-    <h2>ADS Title</h2>
-    <p>ADS author</p>
-    <p>ADS body fragment</p>
+<div class="article ads" *ngIf="currentADS; else noCurrentADS">
+    <a href="" [routerLink]="['/article/read', currentADS!._id]">
+        <h2> {{ currentADS.title }}</h2>
+        <p> by {{ currentADS.author}}</p>
+        <p  class="article-body"> {{ currentADS.body.slice(0, 25)}} ... </p>
+        <p class="article-date">{{ currentADS.created | date:"MMM dd, yyyy 'at' hh:mm a" }}</p>
+    </a>
 </div>
+
+<ng-template #noCurrentADS>
+    <h2> ADS title </h2>
+    <p> by ADS author </p>
+    <p  class="article-body"> ADS body ... </p>
+</ng-template>

@@ -42,8 +42,23 @@ export class ArticleService {
     try{
       const response = await fetch(`${this.url}/stats`)
       const stats = await response.json()
-      const { articleCount, upvotesCount, adsvotesCount } = stats 
-      return { articleCount, upvotesCount, adsvotesCount }
+      const { articleCount, upvotesCount, adsvotesCount, adsCount } = stats 
+      return { articleCount, upvotesCount, adsvotesCount, adsCount }
+    }catch(error)
+    {
+      console.log(error)
+    }
+
+    return {}
+  }
+
+  async getADS()
+  {
+    try{
+      const response = await fetch(`${this.url}/ads`)
+      const ads = await response.json()
+      const { currentADS, previousADS } = ads
+      return {  currentADS, previousADS } 
     }catch(error)
     {
       console.log(error)

@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const getArticles = async (req, res) => {
     try
     {
-        const articles = await Article.find({})
+        const articles = await Article.find({}).sort({ created: 1})
         return res.status(200).json(articles)
     }catch(error)
     {
@@ -147,7 +147,10 @@ const getArticleStats = async (req, res) => {
         //count articles
         const articleCount = await Article.find().count()
 
-        //sum all upvotes in all articles with aggregate function sum()
+        //count previous ADS articles
+        const adsCount = await Article.find({wasADS: true }).count()
+        
+        //sum all upvotes and adsvotes in all articles with aggregate function sum()
         const query = await Article.aggregate([{
             $group: {
                 _id: null, 
@@ -160,7 +163,8 @@ const getArticleStats = async (req, res) => {
         return res.status(200).json({
             articleCount: articleCount,
             upvotesCount: upvotesCount,
-            adsvotesCount: adsvotesCount
+            adsvotesCount: adsvotesCount,
+            adsCount: adsCount
         })
     }catch(error)
     {
@@ -170,9 +174,34 @@ const getArticleStats = async (req, res) => {
     return res.status(500).json({ error: "Server error: Something happenned while fetching articles. "})
 }
 
+const getADS = async (req, res) => {
+    try
+    {
+        //get the single article where isADS is true
+        const adsArray = await Article.find({ isADS: true })
+        /*since .find() returns an array with a single element,
+            to get the only element in it is needed*/
+        const ads = adsArray[0] 
+
+        //get 3 articles where wasADS is true (previous ADS)
+        const previousADS = await Article.find({ wasADS: true }).limit(3)
+
+        return res.status(200).json({
+            currentADS: ads,
+            previousADS: previousADS    
+        }) 
+    }catch(error)
+    {
+        console.log(error)
+    }
+
+    return res.status(500).json({ error: "Server error: Something happenned while fetching ADS. "})
+}
+
 module.exports = {
     getArticles,
     getArticleStats,
+    getADS,
     getArticleById,
     postArticle,
     deleteArticle,

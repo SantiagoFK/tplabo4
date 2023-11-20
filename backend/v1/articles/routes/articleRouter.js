@@ -2,6 +2,7 @@ const express = require('express')
 const {
     getArticles,
     getArticleStats,
+    getADS,
     getArticleById,
     postArticle,
     deleteArticle,
@@ -12,6 +13,7 @@ const articleRouter = express.Router()
 
 articleRouter.get("/", getArticles)
 articleRouter.get("/stats", getArticleStats)
+articleRouter.get("/ads", getADS)
 articleRouter.get("/:id", getArticleById)
 articleRouter.post("/", postArticle)
 articleRouter.delete("/:id", deleteArticle)

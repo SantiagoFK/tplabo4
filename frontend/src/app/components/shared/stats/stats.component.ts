@@ -12,6 +12,7 @@ export class StatsComponent implements OnInit{
   userCount: number = 0
   upvotesCount: number = 0
   adsvotesCount: number = 0
+  adsCount: number = 0
 
   constructor(private articleService: ArticleService,
               private authService: AuthService){}
@@ -26,11 +27,13 @@ export class StatsComponent implements OnInit{
     const { 
       articleCount, 
       upvotesCount, 
-      adsvotesCount
+      adsvotesCount,
+      adsCount
     } = await this.articleService.getArticleStats()
     this.articleCount = articleCount
     this.upvotesCount = upvotesCount
     this.adsvotesCount = adsvotesCount
+    this.adsCount = adsCount
   }
 
   async getUserStats()
