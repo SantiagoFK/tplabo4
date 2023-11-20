@@ -307,6 +307,14 @@ main{
     /*box-shadow: -1px 10px 15px greenyellow;*/
 }
 
+.ads-title{
+    text-align: center;
+}
+
+.ads-author{
+    margin: 2% 0 2% 0;
+}
+
 .articles-container{
     display: flex;
     flex-direction: column;
@@ -370,8 +378,17 @@ input, textarea{
     border-bottom: 2px solid dimgray;
     background: rgba(0, 0, 0, 1);
     width: 98%;
-    margin-bottom: 90px;
+    margin-bottom: 2%;
     color: snow;
+}
+
+.input{
+    margin-top: 2%
+}
+
+span{
+    margin-bottom: 5%;
+    color: red;
 }
 
 .body-input{
@@ -754,6 +771,7 @@ footer{
 
     .sub-banner-txt > p{
         display: block;
+
     }
     
     .sub-banner-txt > h3{

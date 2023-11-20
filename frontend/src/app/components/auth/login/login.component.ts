@@ -10,8 +10,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent {
   userForm: FormGroup = this.fb.nonNullable.group({
-    email: ['', Validators.email],
-    password: ['']
+    email: ['', [Validators.email, Validators.required]],
+    password: ['', Validators.required]
   })
 
   constructor(private fb: FormBuilder, 
@@ -28,5 +28,11 @@ export class LoginComponent {
       this.authService.login(email, pass)
       this.router.navigate([''])
     }
+  }
+
+  validateField(field: string, errorType: string): boolean
+  {
+    return this.userForm.controls[field].getError(errorType)
+      && this.userForm.controls[field].touched
   }
 }

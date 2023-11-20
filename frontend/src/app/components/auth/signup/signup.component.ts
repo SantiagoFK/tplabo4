@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class SignupComponent {
   userForm: FormGroup = this.fb.nonNullable.group({
-    email: ['', Validators.email],
+    email: ['', [Validators.email, Validators.required]],
     username: ['', Validators.required],
     password: ['', Validators.required]
   })
@@ -30,5 +30,13 @@ export class SignupComponent {
       this.authService.signup(email, username, pass)      
       this.router.navigate([''])
     }
+    
+    return 
+  }
+
+  validateField(field: string, errorType: string): boolean
+  {
+    return this.userForm.controls[field].getError(errorType)
+      && this.userForm.controls[field].touched
   }
 }

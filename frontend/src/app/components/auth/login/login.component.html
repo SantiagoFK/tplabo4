@@ -1,12 +1,25 @@
 <form (submit)="login()" [formGroup]="userForm" class="create-form">
-    <div>
+    <div class="input">
         <label for="email">Email:</label><br>
         <input type="email" name="email" id="email" formControlName="email" class="simple-input">
+
+        <span *ngIf="validateField('email', 'email')">
+            Invalid email.
+        </span>
+
+        <span *ngIf="validateField('email', 'required')">
+            This field is required.
+        </span>
     </div>
 
-    <div>
+    <div class="input">
         <label for="password">Password:</label><br>
+
         <input type="password" name="password" id="password" formControlName="password">
+
+        <span *ngIf="validateField('password', 'required')">
+            This field is required.
+        </span>
     </div>
 
     <button type="submit" class="form-btn">Login</button>

@@ -1,18 +1,29 @@
 <form (submit)="saveArticle()" [formGroup]="articleForm" class="create-form">
-    <div>
+    <div class="input">
         <label for="title">Title:</label><br>
+
         <input type="text" name="title" id="title" formControlName="title" class="simple-input">
+
+        <span *ngIf="validateField('title', 'required')">
+            This field is required.
+        </span>
     </div>
 
-    <div>
+    <div class="input">
         <label for="author">Author:</label><br>
-        <input type="text" name="author" id="author" formControlName="author" class="simple-input">
+
+        <input type="text" name="author" id="author" formControlName="author" class="simple-input" readonly>
     </div>
 
-    <div>
+    <div class="input">
         <label for="body">Body:</label><br>
+
         <textarea name="body" id="body" formControlName="body" class="body-input">
         </textarea>
+
+        <span *ngIf="validateField('body', 'required')">
+            This field is required.
+        </span>
     </div>
 
     <div class="article-actions-edit">    
