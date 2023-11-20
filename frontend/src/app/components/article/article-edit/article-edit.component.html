@@ -14,9 +14,19 @@
         <textarea name="body" id="body" formControlName="body" class="body-input">
         </textarea>
     </div>
-    
-    <div class="article-actions">
-        <button type="submit" (click)="saveArticle()"class="form-btn">Update <i class="bi bi-pencil-fill"></i> </button>
-        <button class="form-btn" (click)="cancelUpdate()">Cancel <i class="bi bi-x-circle"></i> </button>
+
+    <div class="article-actions-edit">    
+        <button class="action-btn" (click)="saveArticle()">Update <i class="bi bi-pencil-fill"></i></button>
+
+        <button (click)="cancelUpdate()"
+            class="action-btn">Cancel <i class="bi bi-x-circle"></i></button>    
+    </div>
+
+    <div class="article-actions-mobile">
+        
+        <a class="action-btn-mobile" (click)="saveArticle()">Update <i class="bi bi-pencil-fill"></i></a>
+
+        <a (click)="cancelUpdate()"
+            class="action-btn-mobile">Delete <i class="bi bi-x-circle"></i></a>    
     </div>
 </form>

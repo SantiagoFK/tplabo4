@@ -430,14 +430,25 @@ input, textarea{
 
 .article-actions{
     display: none;
-    max-width: 80%;
+    max-width: 100%;
     margin: 0 auto;
     padding: 2%;
+}
+
+.article-actions-edit {
+    display: none;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.article-actions-edit > button{
+    width: 50%;
 }
 
 .article-actions-mobile{
     padding: 5%;
     display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
     width: 100%;
 }
@@ -447,12 +458,12 @@ input, textarea{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     width: 50%;
 }
 
 .action-btn{
-    width: 30%;
+    width: 100%;
     margin-right: 2%;
 }
 
@@ -618,10 +629,17 @@ footer{
     transform: scale(1.1,1.1);
 }
 
+@media (min-width: 350px)
+{
+    .action-btn-mobile{
+        font-size: 1.8rem;
+    }
+}
+
 
 @media (min-width: 576px) {  
     .action-btn-mobile{
-        font-size: 1.5rem;
+        font-size: 2.7rem;
     }
 }
 
@@ -665,6 +683,10 @@ footer{
 
     .article-actions-mobile{
         display: none;
+    }
+
+    .article-actions-edit{
+        display: flex;
     }
 
 }
